@@ -7,12 +7,10 @@ public class Main {
         final int NUM_TESTS = 100;
         Runtime runtime = Runtime.getRuntime();
 
-        ArrayList<Solution> solutions = new ArrayList<>();
-        solutions.add(new Elimination());
-        solutions.add(new RandomGuessing());
-        solutions.add(new BinaryElimination());
+        ArrayList<Solver> solutions = new ArrayList<>();
+        solutions.add(new RandomSolver());
 
-        for (Solution solution : solutions) {
+        for (Solver solution : solutions) {
             jack.resetTimesAsked();
             long startTime = System.currentTimeMillis();
 
@@ -23,7 +21,7 @@ public class Main {
 
             long endTime = System.currentTimeMillis();
             displayRank(solution.getName(), jack.getTimesAsked(), NUM_TESTS, endTime - startTime);
-            System.out.println("Total Time: " + (endTime - startTime));
+            System.out.println("Total Time: " + (endTime - startTime) + "ms");
         }
     }
 
@@ -42,6 +40,6 @@ public class Main {
             rank = "Magnum P.I.";
         }
 
-        System.out.println(solverName + ", with an average of " + avgGuesses + " guesses averaging " + avgTime + "ms per solution. Your rank is: " + rank + "!");
+        System.out.println(solverName + ", with an average of " + avgGuesses + " guesses at " + avgTime + "ms per solution. Your rank is: " + rank + "!");
     }
 }

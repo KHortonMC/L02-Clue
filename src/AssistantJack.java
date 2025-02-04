@@ -120,7 +120,7 @@ public class AssistantJack {
      *         multiple are incorrect it will randomly select one of the
      *         incorrect parts and return that.
      */
-    public int trueClue(int weapon, int location, int person) {
+    public int clueCount(int weapon, int location, int person) {
         return this.checkAnswer(weapon, location, person, true);
     }
 
@@ -166,7 +166,7 @@ public class AssistantJack {
      *
      * @return the number of incorrect elements without telling which element is incorrect.
      */
-    public int trueClue(Theory theory) {
+    public int clueCount(Theory theory) {
         return this.checkAnswer(theory.getWeapon(), theory.getLocation(), theory.getPerson(), true);
     }
 

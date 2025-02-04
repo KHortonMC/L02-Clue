@@ -1,6 +1,6 @@
 import java.util.Random;
 
-public class RandomGuessing extends Solution {
+public class RandomSolver extends Solver {
     @Override
     public Theory completeSolution(AssistantJack jack) {
         int weapon, location, suspect;
