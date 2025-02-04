@@ -4,28 +4,27 @@ public class Main {
 
     public static void main(String[] args) {
         AssistantJack jack = new AssistantJack();
-        final int NUM_TESTS = 100;
-        Runtime runtime = Runtime.getRuntime();
+        final int NUM_TESTS = 10;
 
-        ArrayList<Solver> solutions = new ArrayList<>();
-        solutions.add(new RandomSolver());
+        ArrayList<Solver> solvers = new ArrayList<>();
+        solvers.add(new RandomSolver());
 
-        for (Solver solution : solutions) {
+        for (Solver solver : solvers) {
             jack.resetTimesAsked();
             long startTime = System.currentTimeMillis();
 
             for (int i = 0; i < NUM_TESTS; i++) {
-                jack.setAnswwerSet(AssistantJack.RANDOM_SET);
-                Theory answer = solution.completeSolution(jack);
+                jack.setAnswerSet(AssistantJack.RANDOM_SET);
+                Theory theory = solver.completeSolution(jack);
             }
 
             long endTime = System.currentTimeMillis();
-            displayRank(solution.getName(), jack.getTimesAsked(), NUM_TESTS, endTime - startTime);
-            System.out.println("Total Time: " + (endTime - startTime) + "ms");
+            displayRank(solver.getName(), jack.getTimesAsked(), NUM_TESTS, endTime - startTime);
+            System.out.println();
         }
     }
 
-    public static void displayRank(String solverName, int guesses, int tests, double time) {
+    public static void displayRank(String solverName, int guesses, int tests, long time) {
         double avgGuesses = (double)guesses / (double)tests;
         double avgTime = (double)time / (double)tests;
 

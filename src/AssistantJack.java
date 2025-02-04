@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+import java.util.Random;
 
 /**
  * AssistantJack.java : will be asked various theories by Detective Jill,
@@ -9,10 +11,6 @@
  * @version 1.0
  *
  */
-
-import java.util.ArrayList;
-import java.util.Random;
-
 public class AssistantJack {
     public static final int RANDOM_SET = 3;
 
@@ -25,7 +23,7 @@ public class AssistantJack {
     public AssistantJack() {
         this.timesAsked = 0;
         this.correctTheory = null;
-        setAnswwerSet(RANDOM_SET);
+        setAnswerSet(RANDOM_SET);
     }
 
     /**
@@ -39,14 +37,14 @@ public class AssistantJack {
      */
     public AssistantJack(int answerSet) {
         this();
-        setAnswwerSet(answerSet);
+        setAnswerSet(answerSet);
     }
 
     public void resetTimesAsked() {
         this.timesAsked = 0;
     }
 
-    public void setAnswwerSet(int answerSet) {
+    public void setAnswerSet(int answerSet) {
         if (answerSet == 1) {
             this.correctTheory = new Theory(1, 1, 1);
         } else if (answerSet == 2) {
@@ -96,7 +94,7 @@ public class AssistantJack {
         if (wrongItems.isEmpty()) {
             return 0;
         } else if (wrongItems.size() == 1) {
-            return wrongItems.get(0);
+            return wrongItems.getFirst();
         } else {
             Random random = new Random();
             int randomSelected = random.nextInt(wrongItems.size());

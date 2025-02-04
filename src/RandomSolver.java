@@ -6,7 +6,7 @@ public class RandomSolver extends Solver {
         int weapon, location, suspect;
         Random random = new Random();
 
-        int solution = 0;
+        int solution;
         do {
             weapon = random.nextInt(TheoryItem.TOTAL_WEAPONS) + 1;
             location = random.nextInt(TheoryItem.TOTAL_LOCATIONS) + 1;
